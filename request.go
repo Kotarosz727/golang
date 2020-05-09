@@ -21,7 +21,7 @@ func main(){
 	hello:= HelloHandler{}
 	world:= WorldHandler{}
 	server:= http.Server{
-		Addr:"0.0.0.0:8080",
+		Addr:"0.0.0.0:8888",
 	}
 	http.Handle("/hello", &hello)
 	http.Handle("/world", &world)
