@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    app:
+        image: golang:latest
+        ports:
+            - "8080:8080"
+        container_name: go-app
+        volumes:
+            - ./:/go
+        tty: true
+        depends_on:
+            - mysql
+    mysql:
+        image: mysql:5.7
+        container_name: go-mysql
+        environment:
+          MYSQL_ROOT_PASSWORD: passward
+          MYSQL_DATABASE: test
+          MYSQL_USER: test
+          MYSQL_PASSWORD: passward
