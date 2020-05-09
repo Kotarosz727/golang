@@ -4,6 +4,7 @@ services:
     app:
         image: golang:latest
         ports:
+            # ホスト側のポート：コンテナ側のポート
             - "8888:8888"
         container_name: go-app
         volumes:
