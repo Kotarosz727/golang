@@ -16,7 +16,12 @@ services:
         image: mysql:5.7
         container_name: go-mysql
         environment:
-          MYSQL_ROOT_PASSWORD: passward
+          MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: test
           MYSQL_USER: test
-          MYSQL_PASSWORD: passward
+          MYSQL_PASSWORD: password
+        volumes:
+            - ./initdb.d:/docker-entrypoint-initdb.d
+            - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+        ports:
+            - 3306:3306  
